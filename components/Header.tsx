@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import Link from 'next/link';
-import { ShoppingCart, Phone } from 'lucide-react';
-import { usePathname } from 'next/navigation';
-import { useCart } from '@/context/CartContext';
+import Link from "next/link";
+import { ShoppingCart, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useCart } from "@/context/CartContext";
 
 const Header = () => {
   const pathname = usePathname();
@@ -17,20 +17,44 @@ const Header = () => {
         <div className="flex items-center">
           <Phone size={24} className="mr-2 text-primary" />
           <span className="font-bold text-primary">ORDER NOW!</span>
-          <span className="ml-2">012 345 678</span>
+          <span className="ml-2">02 4222 6020</span>
         </div>
         <nav>
           <ul className="flex space-x-6">
-            <li><Link href="/" className={`${pathname === '/' ? 'text-primary font-bold' : 'text-foreground/80'} hover:text-primary transition-colors`}>Homepage</Link></li>
-            <li><Link href="/menu" className={`${pathname === '/menu' ? 'text-primary font-bold' : 'text-foreground/80'} hover:text-primary transition-colors`}>Menu</Link></li>
-            <li><Link href="/cart" className="relative">
-              <ShoppingCart size={24} className="text-primary" />
-              {cartItemsCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
-                  {cartItemsCount}
-                </span>
-              )}
-            </Link></li>
+            <li>
+              <Link
+                href="/"
+                className={`${
+                  pathname === "/"
+                    ? "text-primary font-bold"
+                    : "text-foreground/80"
+                } hover:text-primary transition-colors`}
+              >
+                Homepage
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/menu"
+                className={`${
+                  pathname === "/menu"
+                    ? "text-primary font-bold"
+                    : "text-foreground/80"
+                } hover:text-primary transition-colors`}
+              >
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link href="/cart" className="relative">
+                <ShoppingCart size={24} className="text-primary" />
+                {cartItemsCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
+                    {cartItemsCount}
+                  </span>
+                )}
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
